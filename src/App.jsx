@@ -3,7 +3,7 @@ import './App.css';
 
 import "./sass/app.scss"
 
-import TopSection from "./components/top";
+import TopSection from "./components/top/index";
 
 
 class App extends Component {
