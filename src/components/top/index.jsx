@@ -2,6 +2,8 @@ import React from "react";
 
 import "./style.scss";
 
+import Weather from "./weather";
+
 export default class TopSection extends React.Component {
     constructor(props)
     {
@@ -9,8 +11,10 @@ export default class TopSection extends React.Component {
         this.state = {};
     }
     render() {
-        return <div className="top-container">
+        return ( <div className="top-container">
             <div className="title">WEATHER</div>
-        </div>;
+            <Weather />
+        </div>
+        );
     }
 }
