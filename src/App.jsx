@@ -4,6 +4,7 @@ import './App.css';
 import "./sass/app.scss"
 
 import TopSection from "./components/top/index";
+import BottomSection from "./components/bottom/index";
 
 
 class App extends Component {
@@ -13,7 +14,9 @@ class App extends Component {
           <div className="top-section">
             <TopSection />
           </div>
-          <div className="bottom-section">BOTTOM</div>
+          <div className="bottom-section">
+            <BottomSection />
+          </div>
       </div>
     </div>;
   }
