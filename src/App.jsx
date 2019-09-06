@@ -9,7 +9,7 @@ import BottomSection from "./components/bottom/index";
 import axios from "axios";
 
 //API Key
-const WEATHER_KEY = "df4354cc34484dda87b22226190309";
+const WEATHER_KEY = "c755af7334d048048b9192918190609";
 
 class App extends Component {
   constructor(props) {
@@ -22,9 +22,10 @@ class App extends Component {
     }
   }
     
-  componentDidMount() {
+  updateWeather() {
     const { cityName, forecastDays } = this.state;
 
+    // const URL = `https://api-cdn.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${forecastDays}`
     const URL = `https://api-cdn.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${forecastDays}`
     axios.get(URL).then(res => {
       return res.data;
@@ -42,6 +43,19 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    const { eventEmitter } = this.props;
+
+    this.updateWeather();
+
+    eventEmitter.on("updateWeather", (data) => {
+
+      //so the weather will update after the cityName
+      this.setState({ cityName: data }, () => this.updateWeather());
+    })
+
+  }
+
   render() {
 
     const { isLoading, cityName, temp_f, isDay, text, iconURL } = this.state;
@@ -51,7 +65,7 @@ class App extends Component {
         {isLoading && <h3>Loading Weather...</h3>}
         {!isLoading && (
           <div className="top-section">
-            <TopSection location={cityName} temp_f={temp_f} isDay={isDay} text={text} iconURL={iconURL}/>
+            <TopSection location={cityName} temp_f={temp_f} isDay={isDay} text={text} iconURL={iconURL} eventEmitter={this.props.eventEmitter} />
         </div>
         )}
           <div className="bottom-section">
