@@ -16,17 +16,17 @@ class App extends Component {
     super(props);
     this.state = {
         cityName: "Atlanta",
-        forecastDays: 4,
+        numForecastDays: 4,
         isLoading: true,
 
     }
   }
     
   updateWeather() {
-    const { cityName, forecastDays } = this.state;
+    const { cityName, numForecastDays } = this.state;
 
     // const URL = `https://api-cdn.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${forecastDays}`
-    const URL = `https://api-cdn.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${forecastDays}`
+    const URL = `https://api-cdn.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${numForecastDays}`
     axios.get(URL).then(res => {
       return res.data;
     }).then((data) => {
@@ -35,7 +35,8 @@ class App extends Component {
         temp_f: data.current.temp_f, 
         isDay: data.current.is_day, 
         text: data.current.condition.text, 
-        iconURL: data.current.condition.icon 
+        iconURL: data.current.condition.icon,
+        forecastDays: data.forecast.forecastday
       });
     })
     .catch(err => {
@@ -58,7 +59,7 @@ class App extends Component {
 
   render() {
 
-    const { isLoading, cityName, temp_f, isDay, text, iconURL } = this.state;
+    const { isLoading, cityName, temp_f, isDay, text, iconURL, forecastDays } = this.state;
 
     return <div className="app-container">
       <div className="main-container">
@@ -69,7 +70,7 @@ class App extends Component {
         </div>
         )}
           <div className="bottom-section">
-            <BottomSection />
+            <BottomSection forecastDays={forecastDays}/>
           </div>
       </div>
     </div>;
