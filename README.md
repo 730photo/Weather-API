@@ -24,7 +24,7 @@ _____
 <h3>Technologies Used:</h3>
 <ul>
 <li>React.js</li>
-<li>CSS</li>
+<li>SASS</li>
 <li>React Popper</li>
 </ul>
 
