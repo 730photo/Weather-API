@@ -5,6 +5,7 @@
 html, body, #root {
     width: 100%;
     height: 100%;
+    background-color: #445a71;
 }
 
 .app-container {
@@ -19,7 +20,7 @@ html, body, #root {
         height: 300px;
         display: flex;
         flex-direction: column;
-        border: 1px solid #999;
+        // border: 1px solid #999;
         border-radius: 3px;
 
         .top-section {
