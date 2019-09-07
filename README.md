@@ -1,4 +1,4 @@
-#WEATHER
+<h1>#WEATHER</h1>
 
 <h3>
 This took me a litt longer than I hoped because I had to start over a few times, + I spent countless hours debugging errors but I finally finished👨🏾‍💻.
