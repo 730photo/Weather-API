@@ -1,7 +1,7 @@
 <h1>#WEATHER</h1>
 
 <h3>
-This took me a litt longer than I hoped because I had to start over a few times, + I spent countless hours debugging errors but I finally finished👨🏾‍💻.
+This took me a little longer than I hoped because I had to start over a few times, + I spent countless hours debugging errors but I finally finished👨🏾‍💻.
 <br>
 I built my own weather app using an external api from apixu.com <br>
 With this app you can check the current weather and also the weather for the next 4 days of any city you would like to.<br>
